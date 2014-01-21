@@ -1,6 +1,6 @@
 window.createMap = (lat, lon, info,containerId) ->
 	if lat == '0' or lon == '0' 
-		navigator.notification.confirm 'Invalid location returned', goBack, "Can't display map", 'Continue'
+		navigator.notification.confirm 'Invalid location returned', null, "Can't display map", 'Continue'
 		$("##{containerId}").css 'display', 'none'
 	else
 		latlng = new google.maps.LatLng lat, lon
@@ -23,5 +23,3 @@ window.createMap = (lat, lon, info,containerId) ->
 
 		infoWindow.open map, marker	#open window straight away. 		
 
-goBack = () ->
-	window.history.back()

@@ -30,7 +30,7 @@ window.init = () ->
     # alert JSON.stringify json[0].desc
     $('#trainInfo').empty()
     $(json).each ->
-      $('#trainInfo').append """<a href='#' onclick="showMe('#{@.code}')">#{@.desc}</a><br>"""
+      $('#trainInfo').append """<a href='#' onclick="showMe('#{@.code}')">#{@.desc}</a><hr>"""
       trainsStorer.storeTrains @.code, @
 
 
@@ -38,5 +38,5 @@ window.init = () ->
     window.sessionStorage.setItem 'trainInfo', JSON.stringify trainsStorer.getTrain code
     console.log 'trainInfo' + window.sessionStorage.getItem 'trainInfo'
     $.mobile.changePage '../displayTrain/displayTrain.html',
-      transition: 'pop'
+      transition: 'slide'
       changeHash: 'true'

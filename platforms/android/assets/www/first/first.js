@@ -42,7 +42,7 @@
     populatePage = function(json) {
       $('#trainInfo').empty();
       return $(json).each(function() {
-        $('#trainInfo').append("<a href='#' onclick=\"showMe('" + this.code + "')\">" + this.desc + "</a><br>");
+        $('#trainInfo').append("<a href='#' onclick=\"showMe('" + this.code + "')\">" + this.desc + "</a><hr>");
         return trainsStorer.storeTrains(this.code, this);
       });
     };
@@ -50,7 +50,7 @@
       window.sessionStorage.setItem('trainInfo', JSON.stringify(trainsStorer.getTrain(code)));
       console.log('trainInfo' + window.sessionStorage.getItem('trainInfo'));
       return $.mobile.changePage('../displayTrain/displayTrain.html', {
-        transition: 'pop',
+        transition: 'slide',
         changeHash: 'true'
       });
     };
