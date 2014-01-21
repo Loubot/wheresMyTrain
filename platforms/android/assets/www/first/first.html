@@ -6,8 +6,9 @@
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <title>Where's my train</title>
-
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+
+
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBXO67ui3ENSzhijLVZEcbac4t2lLVECew&sensor=true"></script>    
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
@@ -21,6 +22,13 @@
   </head>
   <body>
   	<div id = "main_page" data-role = "page">
+      <div data-role= "navbar">
+        <ul>
+          <li><a href="#" class="ui-btn-active" onclick="getTrainInfo('A')">All</a></li>
+          <li><a href="#" onclick="getTrainInfo('S')">National</a></li>
+          <li><a href="#" onclick="getTrainInfo('D')">Dart</a></li>
+        </ul>
+      </div><!--/navbar-->
   		<strong>Currently running trains</strong>
       <p>Click on any train to see where it is</p>
   		

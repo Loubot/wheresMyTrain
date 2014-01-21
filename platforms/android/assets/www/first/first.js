@@ -19,21 +19,28 @@
       return allTrains;
 
     })();
-    $.ajax({
-      type: 'get',
-      url: 'http://10.0.2.2:3000/all_stations.json',
-      dataType: 'json',
-      success: function(json) {
-        populatePage(json);
-        return console.log('success');
-      },
-      error: function(error) {
-        alert('shite ' + JSON.stringify(error));
-        return console.log('error');
-      }
-    });
+    window.getTrainInfo = function(type) {
+      return $.ajax({
+        type: 'get',
+        data: {
+          data: type
+        },
+        url: 'http://10.0.2.2:3000/all_stations.json',
+        dataType: 'json',
+        success: function(json) {
+          populatePage(json);
+          return console.log('success');
+        },
+        error: function(error) {
+          alert('shite ' + JSON.stringify(error));
+          return console.log('error');
+        }
+      });
+    };
+    getTrainInfo('A');
     trainsStorer = new allTrains();
     populatePage = function(json) {
+      $('#trainInfo').empty();
       return $(json).each(function() {
         $('#trainInfo').append("<a href='#' onclick=\"showMe('" + this.code + "')\">" + this.desc + "</a><br>");
         return trainsStorer.storeTrains(this.code, this);

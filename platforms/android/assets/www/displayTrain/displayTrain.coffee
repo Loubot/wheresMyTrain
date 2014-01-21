@@ -20,5 +20,5 @@ addStops = (stopsInfo) ->
 	$(stopsInfo).each ->
 		$('#trainStops').append """<a href="#" onclick="showStation()">#{@.stop}: Expected arrival: #{@.exArrival}, Expected departure: #{@.exDepart}</p>"""
 
-showStation = () ->
+window.showStation = () ->
 	alert 'yos'	
