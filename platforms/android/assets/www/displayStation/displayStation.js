@@ -4,8 +4,9 @@
     var stationInfo;
     stationInfo = JSON.parse(window.sessionStorage.getItem('stationInfo'));
     console.log(JSON.stringify(stationInfo));
-    return $(stationInfo).each(function() {
-      return $('#stationTimeTable').append("<p>Origin: " + this.origin + "</p>");
+    createMap(stationInfo.coords.lat, stationInfo.coords.lon, 'toBeDone!', 'stationMap');
+    return $(stationInfo.station).each(function() {
+      return $('#stationTimeTable').append("<p>Origin: " + this.origin + ", Expected arrival " + this.arrival + "</p><p>Destination: " + this.destination + " Expected departure: " + this.depart + "</p><hr>");
     });
   });
 

@@ -34,6 +34,7 @@ window.getStation = (stop) ->
 
 
 showStation = (stationInfo) ->
+	console.log 'station hash ' + JSON.stringify stationInfo
 	window.sessionStorage.setItem 'stationInfo', JSON.stringify stationInfo
 	$.mobile.changePage '../displayStation/displayStation.html',
 		transition:'slide'
