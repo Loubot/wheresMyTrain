@@ -20,4 +20,6 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <preference name="LoadUrlTimeoutValue" value="70000"/>
+
 </widget>
