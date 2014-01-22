@@ -31,7 +31,7 @@ public class WheresMyTrain extends CordovaActivity
         super.init();
         // Set by <content src="index.html" /> in config.xml
         //super.loadUrl("file:///android_asset/www/first/first.html");
-        super.loadUrl("file:///android_asset/www/first/first.html");
+        super.loadUrl("file:///android_asset/www/splashPage/splashPage.html");
     }
 }
 

@@ -1,4 +1,4 @@
-window.init = () ->
+$(document).on 'pagebeforeshow', '#all_trains_page', ->
   console.log 'begin'
   
   class allTrains
@@ -34,7 +34,7 @@ window.init = () ->
       trainsStorer.storeTrains @.code, @
 
 
-  window.showMe = (code) ->
+  window.showMe = (code) ->#this function also called from displayStation.coffee
     window.sessionStorage.setItem 'trainInfo', JSON.stringify trainsStorer.getTrain code
     console.log 'trainInfo' + window.sessionStorage.getItem 'trainInfo'
     $.mobile.changePage '../displayTrain/displayTrain.html',
@@ -42,3 +42,4 @@ window.init = () ->
       changeHash: 'true'
 
 #http://www.ikea.com/ie/en/images/products/lillabo--piece-basic-train-set__65510_PE176881_S4.jpg
+#https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTtwzta5d6AlhrDIzdDi6RyYDoRFOLgLvzyA_5yEFB9-oSBvkOm

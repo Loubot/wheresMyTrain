@@ -1,4 +1,4 @@
-$(document).on 'pageshow', '#display_train_page', ->
+$(document).on 'pagebeforeshow', '#display_train_page', ->
 	trainInfo = JSON.parse window.sessionStorage.getItem 'trainInfo'
 
 	$.ajax

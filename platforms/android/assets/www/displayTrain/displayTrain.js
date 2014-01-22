@@ -2,7 +2,7 @@
 (function() {
   var addStops, showStation;
 
-  $(document).on('pageshow', '#display_train_page', function() {
+  $(document).on('pagebeforeshow', '#display_train_page', function() {
     var trainInfo;
     trainInfo = JSON.parse(window.sessionStorage.getItem('trainInfo'));
     $.ajax({
