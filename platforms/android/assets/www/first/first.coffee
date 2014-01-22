@@ -40,3 +40,5 @@ window.init = () ->
     $.mobile.changePage '../displayTrain/displayTrain.html',
       transition: 'slide'
       changeHash: 'true'
+
+#http://www.ikea.com/ie/en/images/products/lillabo--piece-basic-train-set__65510_PE176881_S4.jpg

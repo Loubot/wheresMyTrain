@@ -2,6 +2,7 @@ $(document).on 'pageshow', '#display_station_page', ->
 	stationInfo = JSON.parse window.sessionStorage.getItem 'stationInfo'
 	console.log JSON.stringify stationInfo
 
-	createMap(stationInfo.coords.lat, stationInfo.coords.lon, 'toBeDone!', 'stationMap')
+	$('#stationTitle').text stationInfo.name
+	createMap(stationInfo.coords.lat, stationInfo.coords.lon, stationInfo.name, 'stationMap')
 	$(stationInfo.station).each ->		
-		$('#stationTimeTable').append """<p>Origin: #{@.origin}, Expected arrival #{@.arrival}</p><p>Destination: #{@destination} Expected departure: #{@.depart}</p><hr>"""
+		$('#stationTimeTable').append """<a href="#" onclick="showMe(#{@.code})">Origin: #{@.origin}, Expected arrival #{@.arrival}<br>Destination: #{@destination} Expected departure: #{@.depart}</a><hr>"""
