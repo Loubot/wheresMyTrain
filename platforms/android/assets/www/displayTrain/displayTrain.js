@@ -30,6 +30,7 @@
   };
 
   window.getStation = function(stop) {
+    alert(stop);
     return $.ajax({
       url: 'http://10.0.2.2:3000/station_info.json',
       data: {

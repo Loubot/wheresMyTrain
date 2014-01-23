@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <meta charset="utf-8" />
+    <meta />
     <meta name="format-detection" content="telephone=no" />
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
@@ -14,21 +14,22 @@
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
     
-	  <script type="text/javascript" charset="utf-8" src="../cordova.js"></script>    
-    <script type="text/javascript" charset="utf-8" src="../allTrains/allTrains.js"></script> 
-    <script type="text/javascript" charset="utf-8" src="../displayTrain/displayTrain.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../mapCreater/mapCreater.js"></script>
-    <script type="text/javascript" charset="utf-8" src="splashPage.js"></script>    
-    <script type="text/javascript" charset="utf-8" src="../displayStation/displayStation.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../onDeviceReady.js"></script>
+	  <script type="text/javascript" src="../cordova.js"></script>    
+    <script type="text/javascript" src="../allTrains/allTrains.js"></script> 
+    <script type="text/javascript" src="../displayTrain/displayTrain.js"></script>
+    <script type="text/javascript" src="../mapCreater/mapCreater.js"></script>
+    <script type="text/javascript" src="splashPage.js"></script>    
+    <script type="text/javascript" src="../displayStation/displayStation.js"></script>
+    <script type="text/javascript" src="../allStations/allStations.js"></script>
+    <script type="text/javascript" src="../onDeviceReady.js"></script>
 
 
   </head>
   <body>
 
   	<div id = "splash_page" data-role = "page">
-      <a  href="../allTrains/allTrains.html"><img src="../img/trainTimes.jpg" id = "timeTable"></a>
-      <a href="#"><img src="../img/stationImage.jpg" id = "stationImage"></a>
+      <a href="../allTrains/allTrains.html"><img src="../img/trainTimes.jpg" id = "timeTable"></a>
+      <a href="../allStations/allStations.html"><img src="../img/stationImage.jpg" id = "stationImage"></a>
     </div>
   </body>
 </html>

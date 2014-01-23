@@ -21,6 +21,7 @@ addStops = (stopsInfo) ->
 		$('#trainStops').append """<a href="#" onclick="getStation('#{@.stop}')">#{@.stop}: Expected arrival: #{@.exArrival}, Expected departure: #{@.exDepart}</p>"""
 
 window.getStation = (stop) ->
+	alert stop
 	$.ajax
 		url:'http://10.0.2.2:3000/station_info.json'
 		data: { data: stop }
