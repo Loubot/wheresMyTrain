@@ -16,15 +16,15 @@ $(document).on 'pagebeforeshow', '#display_train_page', ->
 	createMap(trainInfo.lat,trainInfo.lon,trainInfo.desc,'mapContainer')
 
 addStops = (stopsInfo) ->
-	# console.log 'stops info ' + JSON.stringify stopsInfo
+	console.log 'stops info ' + JSON.stringify stopsInfo
 	$(stopsInfo).each ->
-		$('#trainStops').append """<a href="#" onclick="getStation('#{@.stop}')">#{@.stop}: Expected arrival: #{@.exArrival}, Expected departure: #{@.exDepart}</p>"""
+		$('#trainStops').append """<a href="#" onclick="getStation('#{@.stopCode}')">#{@.stop}: Expected arrival: #{@.exArrival}, Expected departure: #{@.exDepart}</p>"""
 
-window.getStation = (stop) ->
-	alert stop
+window.getStation = (stopCode) ->
+	alert 'getStation ajax ' +stopCode
 	$.ajax
 		url:'http://10.0.2.2:3000/station_info.json'
-		data: { data: stop }
+		data: { data: stopCode }
 		dataType: 'json'
 		success: (result) ->
 			showStation(result)

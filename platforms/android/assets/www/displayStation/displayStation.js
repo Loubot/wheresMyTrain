@@ -5,7 +5,12 @@
     stationInfo = JSON.parse(window.sessionStorage.getItem('stationInfo'));
     console.log(JSON.stringify(stationInfo));
     $('#stationTitle').text(stationInfo.name);
-    createMap(stationInfo.coords.lat, stationInfo.coords.lon, stationInfo.name, 'stationMap');
+    if ((stationInfo.coords.lat != null) && (stationInfo.coords.lon != null)) {
+      createMap(stationInfo.coords.lat, stationInfo.coords.lon, stationInfo.name, 'stationMap');
+    } else {
+      $('#stationMap').css('display', 'none');
+      navigator.notification.confirm('Invalid location returned', null, ["Can't display map"], ["Continue"]);
+    }
     return $(stationInfo.station).each(function() {
       return $('#stationTimeTable').append("<a href=\"#\" onclick=\"showMe('" + this.code + "')\">Origin: " + this.origin + ", Expected arrival " + this.arrival + "<br>Destination: " + this.destination + " Expected departure: " + this.depart + "</a><hr>");
     });

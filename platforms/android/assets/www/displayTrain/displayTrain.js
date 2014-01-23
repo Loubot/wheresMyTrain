@@ -24,17 +24,18 @@
   });
 
   addStops = function(stopsInfo) {
+    console.log('stops info ' + JSON.stringify(stopsInfo));
     return $(stopsInfo).each(function() {
-      return $('#trainStops').append("<a href=\"#\" onclick=\"getStation('" + this.stop + "')\">" + this.stop + ": Expected arrival: " + this.exArrival + ", Expected departure: " + this.exDepart + "</p>");
+      return $('#trainStops').append("<a href=\"#\" onclick=\"getStation('" + this.stopCode + "')\">" + this.stop + ": Expected arrival: " + this.exArrival + ", Expected departure: " + this.exDepart + "</p>");
     });
   };
 
-  window.getStation = function(stop) {
-    alert(stop);
+  window.getStation = function(stopCode) {
+    alert('getStation ajax ' + stopCode);
     return $.ajax({
       url: 'http://10.0.2.2:3000/station_info.json',
       data: {
-        data: stop
+        data: stopCode
       },
       dataType: 'json',
       success: function(result) {

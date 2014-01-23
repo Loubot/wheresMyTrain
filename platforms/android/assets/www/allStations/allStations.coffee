@@ -19,3 +19,8 @@ displayStations = (json) ->
   $('#allStationsList').empty()
   $(json).each ->
     $('#allStationsList').append """<a href="#" onclick="stationChoice('#{@.stationId}')">#{@.name}</a><hr> """
+
+stationChoice = (code) ->
+  alert 'allStations' + code
+  # $.ajax
+  #   url: 'http://10.0.2.2:3000/'
