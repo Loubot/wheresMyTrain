@@ -20,8 +20,8 @@ $(document).on 'pagebeforeshow', '#all_trains_page', ->
         populatePage(json)
         console.log 'success'
       error: (error) ->
-        alert 'shite ' + JSON.stringify error
-        console.log 'error'
+        console.log 'shite ' + JSON.stringify error
+        
 
   getTrainInfo('A')
 
@@ -34,12 +34,12 @@ $(document).on 'pagebeforeshow', '#all_trains_page', ->
       trainsStorer.storeTrains @.code, @
 
 
-  window.showMe = (code) ->#this function also called from displayStation.coffee
-    window.sessionStorage.setItem 'trainInfo', JSON.stringify trainsStorer.getTrain code
-    console.log 'trainInfo' + window.sessionStorage.getItem 'trainInfo'
-    $.mobile.changePage '../displayTrain/displayTrain.html',
-      transition: 'slide'
-      changeHash: 'true'
+window.showMe = (code) ->#this function also called from displayStation.coffee
+  window.sessionStorage.setItem 'trainInfo', JSON.stringify trainsStorer.getTrain code
+  console.log 'trainInfo' + window.sessionStorage.getItem 'trainInfo'
+  $.mobile.changePage '../displayTrain/displayTrain.html',
+    transition: 'slide'
+    changeHash: 'true'
 
 #http://www.ikea.com/ie/en/images/products/lillabo--piece-basic-train-set__65510_PE176881_S4.jpg
 #https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTtwzta5d6AlhrDIzdDi6RyYDoRFOLgLvzyA_5yEFB9-oSBvkOm

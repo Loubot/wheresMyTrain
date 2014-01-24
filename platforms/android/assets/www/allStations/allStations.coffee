@@ -1,26 +1,27 @@
 $(document).on 'pagebeforeshow', '#all_stations_page', ->
-  getAllStations('A')
+  getStations 'A'
 
 
-window.getAllStations = (type) ->
-  $.ajax
-    url: 'http://10.0.2.2:3000/get_all_stations.json'
-    type: 'get'
-    dataType:'json'
-    data: { type: type}
-    timeout: 10000
-    success: (result) ->
-      displayStations(result)
-    error: (error) ->
-      console.log JSON.stringify error
+window.getStations = (choice) ->
+    $.ajax
+      url: "http://10.0.2.2:3000/get_all_stations.json"
+      data: { type: choice }
+      type:'get'
+      dataType:'json'
+      timeout:10000
+      success: (result) ->
+        populateAllStationsPage result
+      error: (error) ->
+        console.log 'Get all stations failed ' + JSON.stringify error
 
-
-displayStations = (json) ->
+populateAllStationsPage = (json) ->
   $('#allStationsList').empty()
   $(json).each ->
-    $('#allStationsList').append """<a href="#" onclick="stationChoice('#{@.stationId}')">#{@.name}</a><hr> """
+    $('#allStationsList').append """<a href="../displayStation/displayStation.html" onclick="getStationInfo('#{@.StationCode}')">#{@.StationDesc}</a><hr> """
 
-stationChoice = (code) ->
-  alert 'allStations' + code
-  # $.ajax
-  #   url: 'http://10.0.2.2:3000/'
+
+
+window.getStationInfo = (code) ->
+  window.sessionStorage.setItem 'stationCode', code
+  $.mobile.changePage '../displayStation/displayStation.html', transition:'slide',changeHash:true
+

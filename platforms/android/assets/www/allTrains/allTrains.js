@@ -32,28 +32,28 @@
           return console.log('success');
         },
         error: function(error) {
-          alert('shite ' + JSON.stringify(error));
-          return console.log('error');
+          return console.log('shite ' + JSON.stringify(error));
         }
       });
     };
     getTrainInfo('A');
     trainsStorer = new allTrains();
-    populatePage = function(json) {
+    return populatePage = function(json) {
       $('#trainInfo').empty();
       return $(json).each(function() {
         $('#trainInfo').append("<a href='#' onclick=\"showMe('" + this.code + "')\">" + this.desc + "</a><hr>");
         return trainsStorer.storeTrains(this.code, this);
       });
     };
-    return window.showMe = function(code) {
-      window.sessionStorage.setItem('trainInfo', JSON.stringify(trainsStorer.getTrain(code)));
-      console.log('trainInfo' + window.sessionStorage.getItem('trainInfo'));
-      return $.mobile.changePage('../displayTrain/displayTrain.html', {
-        transition: 'slide',
-        changeHash: 'true'
-      });
-    };
   });
+
+  window.showMe = function(code) {
+    window.sessionStorage.setItem('trainInfo', JSON.stringify(trainsStorer.getTrain(code)));
+    console.log('trainInfo' + window.sessionStorage.getItem('trainInfo'));
+    return $.mobile.changePage('../displayTrain/displayTrain.html', {
+      transition: 'slide',
+      changeHash: 'true'
+    });
+  };
 
 }).call(this);

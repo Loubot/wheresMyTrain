@@ -4,6 +4,7 @@ window.createMap = (lat, lon, info,containerId) ->
 		$("##{containerId}").css 'display', 'none'
 	else
 		latlng = new google.maps.LatLng lat, lon
+		alert latlng
 		map = new google.maps.Map document.getElementById(containerId),
 			center:latlng
 			zoom:10

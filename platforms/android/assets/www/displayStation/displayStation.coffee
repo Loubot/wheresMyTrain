@@ -1,13 +1,23 @@
 $(document).on 'pagebeforeshow', '#display_station_page', ->
-	stationInfo = JSON.parse window.sessionStorage.getItem 'stationInfo'
-	console.log JSON.stringify stationInfo
+	code = window.sessionStorage.getItem 'stationCode'	
+	$.ajax
+		url: "http://10.0.2.2:3000/station_info.json"
+		data: { data: code }
+		type: 'get'
+		dataType: 'json'
+		timeout: 10000
+		success: (result) ->
+			populateDisplayStation(result)
+		error: (error) ->
+			console.log 'Display station get station info ajax failed '  + JSON.stringify error
 
-	$('#stationTitle').text stationInfo.name
-	if stationInfo.coords.lat? && stationInfo.coords.lon?
-		createMap(stationInfo.coords.lat, stationInfo.coords.lon, stationInfo.name, 'stationMap')
-	else
-		$('#stationMap').css 'display', 'none'
-		navigator.notification.confirm 'Invalid location returned', null, ["Can't display map"], ["Continue"]
-	$(stationInfo.station).each ->		
-		$('#stationTimeTable').append """<a href="#" onclick="showMe('#{@.code}')">Origin: #{@.origin}, Expected arrival #{@.arrival}<br>Destination: #{@destination} Expected departure: #{@.depart}</a><hr>"""
-		#above link calls to first.coffee as it is a repeat of the showMe function from that page. 
+populateDisplayStation = (json) ->
+	alert JSON.stringify json.coords.lat
+	createMap json.coords.lat, json.coords.lon, 'toBeDone!', 'stationMap'
+	$('#stationTimeTable').empty()
+	$(json.station).each ->
+		$('#stationTimeTable').append """<a href="#" onclick="getTrainInfo('#{@.code}')">#{@.origin}</a><hr> """
+
+window.getTrainInfo = (trainCode) ->
+	window.sessionStorage.setItem 'trainCode', trainCode
+	$.mobile.changePage '../displayTrain/displayTrain.html', transition: 'slide', changeHash: true
