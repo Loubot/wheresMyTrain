@@ -23,15 +23,16 @@
   });
 
   populateDisplayStation = function(json) {
-    alert(JSON.stringify(json.coords.lat));
-    createMap(json.coords.lat, json.coords.lon, 'toBeDone!', 'stationMap');
+    console.log('displayStation ajax success ' + JSON.stringify(json));
+    $('#stationTitle').text("" + json.coords.stationName);
+    createMap(json.coords.lat, json.coords.lon, json.coords.stationName, 'stationMap');
     $('#stationTimeTable').empty();
     return $(json.station).each(function() {
-      return $('#stationTimeTable').append("<a href=\"#\" onclick=\"getTrainInfo('" + this.code + "')\">" + this.origin + "</a><hr> ");
+      return $('#stationTimeTable').append("<a href=\"#\" onclick=\"displayThisTrain('" + this.code + "')\">Origin: " + this.origin + ", Destination: " + this.destination + " <br>Arrival: " + this.arrival + ", Departure: " + this.depart + " </a><hr> ");
     });
   };
 
-  window.getTrainInfo = function(trainCode) {
+  window.displayThisTrain = function(trainCode) {
     window.sessionStorage.setItem('trainCode', trainCode);
     return $.mobile.changePage('../displayTrain/displayTrain.html', {
       transition: 'slide',

@@ -4,8 +4,8 @@
 
   $(document).on('pagebeforeshow', '#display_train_page', function() {
     var trainCode;
-    trainCode = JSON.parse(window.sessionStorage.getItem('trainCode'));
-    console.log('displayTrain info ' + JSON.stringify(trainInfo));
+    trainCode = window.sessionStorage.getItem('trainCode');
+    console.log('displayTrain info ' + trainCode);
     return $.ajax({
       url: 'http://10.0.2.2:3000/train_info.json',
       data: {
@@ -24,14 +24,15 @@
 
   addStops = function(stopsInfo) {
     console.log('stops info ' + JSON.stringify(stopsInfo));
-    $('#displayTrain').append("" + trainInfo.desc);
-    createMap(trainInfo.coords.lat, trainInfo.coords.lon, trainInfo.coords.desc, 'mapContainer');
+    $('#displayTrain').append("" + stopsInfo.coords.desc);
+    createMap(stopsInfo.coords.lat, stopsInfo.coords.lon, stopsInfo.coords.desc, 'mapContainer');
     return $(stopsInfo.stops).each(function() {
       return $('#trainStops').append("<a href=\"#\" onclick=\"getStationInfo('" + this.stopCode + "')\">" + this.stop + ": Expected arrival: " + this.exArrival + ", Expected departure: " + this.exDepart + "</p>");
     });
   };
 
   window.getStationInfo = function(code) {
+    alert(code);
     window.sessionStorage.setItem('stationCode', code);
     return $.mobile.changePage('../displayStation/displayStation.html', {
       transition: 'slide',

@@ -25,7 +25,7 @@ $(document).on 'pagebeforeshow', '#all_trains_page', ->
 
   getTrainInfo('A')
 
-  trainsStorer = new allTrains()
+  window.trainsStorer = new allTrains()
   populatePage = (json) ->
     # alert JSON.stringify json[0].desc
     $('#trainInfo').empty()
@@ -35,8 +35,8 @@ $(document).on 'pagebeforeshow', '#all_trains_page', ->
 
 
 window.showMe = (code) ->#this function also called from displayStation.coffee
-  window.sessionStorage.setItem 'trainInfo', JSON.stringify trainsStorer.getTrain code
-  console.log 'trainInfo' + window.sessionStorage.getItem 'trainInfo'
+  window.sessionStorage.setItem 'trainCode', code
+  console.log 'trainInfo' + window.sessionStorage.getItem 'trainCode'
   $.mobile.changePage '../displayTrain/displayTrain.html',
     transition: 'slide'
     changeHash: 'true'

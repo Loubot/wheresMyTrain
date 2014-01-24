@@ -12,12 +12,13 @@ $(document).on 'pagebeforeshow', '#display_station_page', ->
 			console.log 'Display station get station info ajax failed '  + JSON.stringify error
 
 populateDisplayStation = (json) ->
-	alert JSON.stringify json.coords.lat
-	createMap json.coords.lat, json.coords.lon, 'toBeDone!', 'stationMap'
+	console.log 'displayStation ajax success ' + JSON.stringify json
+	$('#stationTitle').text "#{json.coords.stationName}"
+	createMap json.coords.lat, json.coords.lon, json.coords.stationName, 'stationMap'
 	$('#stationTimeTable').empty()
 	$(json.station).each ->
-		$('#stationTimeTable').append """<a href="#" onclick="getTrainInfo('#{@.code}')">#{@.origin}</a><hr> """
+		$('#stationTimeTable').append """<a href="#" onclick="displayThisTrain('#{@.code}')">Origin: #{@.origin}, Destination: #{@.destination} <br>Arrival: #{@.arrival}, Departure: #{@.depart} </a><hr> """
 
-window.getTrainInfo = (trainCode) ->
+window.displayThisTrain = (trainCode) ->
 	window.sessionStorage.setItem 'trainCode', trainCode
 	$.mobile.changePage '../displayTrain/displayTrain.html', transition: 'slide', changeHash: true
