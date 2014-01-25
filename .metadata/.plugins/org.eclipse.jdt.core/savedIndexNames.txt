@@ -1,4 +1,0 @@
-INDEX VERSION 1.126+C:\Users\angell\Documents\railsApps\wheresMyTrain\.metadata\.plugins\org.eclipse.jdt.core
-326768661.index
-1191640165.index
-4027529469.index
