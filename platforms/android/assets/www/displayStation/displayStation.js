@@ -24,11 +24,11 @@
 
   populateDisplayStation = function(json) {
     console.log('displayStation ajax success ' + JSON.stringify(json));
-    $('#stationTitle').text("" + json.coords.stationName);
+    $('#stationTitle').text("" + json.coords.stationName + " station info:");
     createMap(json.coords.lat, json.coords.lon, json.coords.stationName, 'stationMap');
     $('#stationTimeTable').empty();
     return $(json.station).each(function() {
-      return $('#stationTimeTable').append("<a href=\"#\" onclick=\"displayThisTrain('" + this.code + "')\">Origin: " + this.origin + ", Destination: " + this.destination + " <br>Arrival: " + this.arrival + ", Departure: " + this.depart + " </a><hr> ");
+      return $('#stationTimeTable').append("<a href=\"#\" onclick=\"displayThisTrain('" + this.code + "')\">" + this.origin + " to " + this.destination + " <br>Due at " + this.arrival + ", Departing " + this.depart + " </a><hr> ");
     });
   };
 

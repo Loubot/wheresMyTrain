@@ -13,11 +13,11 @@ $(document).on 'pagebeforeshow', '#display_station_page', ->
 
 populateDisplayStation = (json) ->
 	console.log 'displayStation ajax success ' + JSON.stringify json
-	$('#stationTitle').text "#{json.coords.stationName}"
+	$('#stationTitle').text "#{json.coords.stationName} station info:"
 	createMap json.coords.lat, json.coords.lon, json.coords.stationName, 'stationMap'
 	$('#stationTimeTable').empty()
 	$(json.station).each ->
-		$('#stationTimeTable').append """<a href="#" onclick="displayThisTrain('#{@.code}')">Origin: #{@.origin}, Destination: #{@.destination} <br>Arrival: #{@.arrival}, Departure: #{@.depart} </a><hr> """
+		$('#stationTimeTable').append """<a href="#" onclick="displayThisTrain('#{@.code}')">#{@.origin} to #{@.destination} <br>Due at #{@.arrival}, Departing #{@.depart} </a><hr> """
 
 window.displayThisTrain = (trainCode) ->
 	window.sessionStorage.setItem 'trainCode', trainCode

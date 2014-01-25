@@ -8,6 +8,8 @@
     <title>Where's my train</title>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
     <link rel="stylesheet" type="text/css" href="../css/myCss.css">
+    <link rel="stylesheet" href="../css/themes/greenTheme.css" />
+    <link rel="stylesheet" href="../css/themes/jquery.mobile.icons.min.css" />
 
 
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBXO67ui3ENSzhijLVZEcbac4t2lLVECew&sensor=true"></script>    
@@ -25,11 +27,15 @@
 
 
   </head>
-  <body>
-
-  	<div id = "splash_page" data-role = "page">
-      <a href="../allTrains/allTrains.html"><img src="../img/trainTimes.jpg" id = "timeTable"></a>
-      <a href="../allStations/allStations.html"><img src="../img/stationImage.jpg" id = "stationImage"></a>
-    </div>
+  <body  data-theme="a" >
+  	<div id = "splash_page" data-role = "page" >
+      <div id="globalHeader" data-role="header"  data-position="fixed">
+        <h2>Where's my train</h2>
+      </div><!--end globalHeader-->
+      <div data-role="content" data-theme="a" >
+        <a href="../allTrains/allTrains.html"><img src="../img/trainTimes.jpg" id = "timeTable"></a>
+        <a href="../allStations/allStations.html"><img src="../img/stationImage.jpg" id = "stationImage"></a>
+      </div><!--end of content-->
+    </div><!--end splash_page-->
   </body>
 </html>
