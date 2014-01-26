@@ -1,7 +1,7 @@
 <div id="display_train_page" data-role="page" data-theme="a">
 	<div id ="display_train_content" data-role="content" data-theme="a">
 		<p id="displayTrain"></p>
-		<div style = "height:300px;" id="mapContainer">
+		<div  id="mapContainer">
 
 		</div><!--mapContainer-->
 
@@ -9,4 +9,9 @@
 			
 		</div><!--trainStops-->
 	</div><!--display_train_content -->
+  <div data-role="footer" data-position="fixed">
+    <a href="#" onclick="goHome()" class="ui-btn-left" data-icon="home">Home</a>
+    <span class="ui-title"></span>
+    <a href="#" onclick="quit()" class="ui-btn-right" data-icon="delete">Quit</a>
+  </div><!--end of footer-->
 </div><!-- display_train_page -->

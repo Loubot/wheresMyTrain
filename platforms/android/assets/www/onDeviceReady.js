@@ -2,4 +2,16 @@
 (function() {
   document.addEventListener('deviceready', init, false);
 
+  window.goHome = function() {
+    return $.mobile.changePage("../splashPage/splashPage.html", {
+      transition: 'slide',
+      changeHash: true,
+      reverse: true
+    });
+  };
+
+  window.quit = function() {
+    return navigator.device.exitApp();
+  };
+
 }).call(this);

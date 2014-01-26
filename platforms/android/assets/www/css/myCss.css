@@ -25,3 +25,7 @@ body{
 	padding-left: 5%;
 	width:40%;
 }
+
+#mapContainer{
+	height:35%;
+}

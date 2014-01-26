@@ -1,14 +1,21 @@
 <div id="all_stations_page" data-role="page" >
+  <div data-role="navbar" data-position="fixed" data-theme="a">
+    <ul>
+      <li><a href="#" onclick="getStations('A')" class="ui-btn-active">All</a></li>
+      <li><a href="#" onclick="getStations('S')">Suburban</a></li>
+      <li><a href="#" onclick="getStations('D')">Dart</a></li>
+    </ul>
+  </div>
   <div id="all_stations_content" data-role="content" data-theme="a">
-    <div data-role="navbar" data-theme="a">
-      <ul>
-        <li><a href="#" onclick="getStations('A')" class="ui-btn-active">All</a></li>
-        <li><a href="#" onclick="getStations('S')">Suburban</a></li>
-        <li><a href="#" onclick="getStations('D')">Dart</a></li>
-      </ul>
-    </div>
+    
     <section id="allStationsList">
 
     </section><!--allStationsList-->
   </div><!--all_stations_content-->
+  <div data-role="footer" data-position="fixed">
+    <a href="#" onclick="goHome()" class="ui-btn-left" data-icon="home">Home</a>
+
+    <span class="ui-title"></span>
+    <a href="#" onclick="quit()" class="ui-btn-right" data-icon="delete">Quit</a>
+  </div>
 </div><!--all-stations_page-->
