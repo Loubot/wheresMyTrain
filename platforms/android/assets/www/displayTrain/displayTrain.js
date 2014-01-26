@@ -24,7 +24,7 @@
 
   addStops = function(stopsInfo) {
     console.log('stops info ' + JSON.stringify(stopsInfo));
-    $('#displayTrain').append("" + stopsInfo.coords.desc);
+    $('#displayTrain').empty().append("" + stopsInfo.coords.desc);
     createMap(stopsInfo.coords.lat, stopsInfo.coords.lon, stopsInfo.coords.desc, 'mapContainer');
     return $(stopsInfo.stops).each(function() {
       return $('#trainStops').append("<a href=\"#\" onclick=\"getStationInfo('" + this.stopCode + "')\">" + this.stop + ": Expected arrival: " + this.exArrival + ", Expected departure: " + this.exDepart + "</p>");

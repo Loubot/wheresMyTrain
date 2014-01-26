@@ -16,7 +16,7 @@ $(document).on 'pagebeforeshow', '#display_train_page', ->
 addStops = (stopsInfo) ->
 	console.log 'stops info ' + JSON.stringify stopsInfo
 
-	$('#displayTrain').append """#{stopsInfo.coords.desc}"""
+	$('#displayTrain').empty().append """#{stopsInfo.coords.desc}"""
 	createMap stopsInfo.coords.lat,stopsInfo.coords.lon,stopsInfo.coords.desc,'mapContainer'
 
 	$(stopsInfo.stops).each ->
