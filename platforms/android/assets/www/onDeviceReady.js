@@ -11,7 +11,7 @@
   };
 
   window.quit = function() {
-    return navigator.device.exitApp();
+    return navigator.app.exitApp();
   };
 
 }).call(this);

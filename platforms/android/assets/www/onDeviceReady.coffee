@@ -5,4 +5,4 @@ window.goHome = () ->
   $.mobile.changePage "../splashPage/splashPage.html", transition: 'slide', changeHash: true, reverse: true
 
 window.quit = () ->
-  navigator.device.exitApp()
+  navigator.app.exitApp()
