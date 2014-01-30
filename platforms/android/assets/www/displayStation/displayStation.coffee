@@ -13,7 +13,7 @@ $(document).on 'pagebeforeshow', '#display_station_page', ->
 
 populateDisplayStation = (json) ->
 	console.log 'displayStation ajax success ' + JSON.stringify json
-	$('#stationTitle').text "#{json.coords.stationName} station info:"
+	$('#stationTitle').empty().append "#{json.coords.stationName}"
 	createMap json.coords.lat, json.coords.lon, json.coords.stationName, 'stationMap'
 	$('#stationTimeTable').empty()
 	$(json.station).each ->

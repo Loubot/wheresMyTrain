@@ -24,7 +24,7 @@
 
   populateDisplayStation = function(json) {
     console.log('displayStation ajax success ' + JSON.stringify(json));
-    $('#stationTitle').text("" + json.coords.stationName + " station info:");
+    $('#stationTitle').empty().append("" + json.coords.stationName);
     createMap(json.coords.lat, json.coords.lon, json.coords.stationName, 'stationMap');
     $('#stationTimeTable').empty();
     return $(json.station).each(function() {
