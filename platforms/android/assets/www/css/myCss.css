@@ -26,6 +26,13 @@ body{
 	width:40%;
 }
 
+#searchImage{
+	width: 40%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;	
+}
+
 #mapContainer{
 	height:35%;
 }
