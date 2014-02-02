@@ -10,6 +10,13 @@ $(document).on 'pagebeforeshow', '#display_station_page', ->
 			populateDisplayStation(result)
 		error: (error) ->
 			console.log 'Display station get station info ajax failed '  + JSON.stringify error
+			navigator.notification.confirm 'Server returned invalid code',
+				goBack,'Invlaid Station', ['Return']
+
+
+goBack = () ->
+	$.mobile.back changeHash:true, transition:'slide', reverse: true
+
 
 populateDisplayStation = (json) ->
 	console.log 'displayStation ajax success ' + JSON.stringify json

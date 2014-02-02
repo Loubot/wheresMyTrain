@@ -1,8 +1,21 @@
 <div id="search_stations_page" data-role="page" data-theme="a">
+  <div data-role="header" data-position="fixed" data-tap-toggle="false">
+    <h2>Search Stations</h2>
+  </div><!-- end of header -->
   <div id="search_stations_content" data-role="content" data-theme="a">
-    <div data-role="fieldcontain">
+    <div class="ui-field-contain">
       <label for="search-basic">Search stations:</label>
       <input type="search" name="search" id="search-basic" value="" />
-    </div>
-  </div>
-</div>
+      <button id="submitSearch" data-icon="search"> Search</button>
+
+      <section id="searchResults">
+
+      </section><!-- end of searchResults -->
+    </div><!--end of ui-field-contain-->
+  </div><!-- end of search-stations_content -->
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" >
+    <a href="#" onclick="goHome()" class="ui-btn-left" data-icon="home">Home</a>
+    <span class="ui-title"></span>
+    <a href="#" onclick="quit()" class="ui-btn-right" data-icon="delete">Quit</a>
+  </div><!-- end of footer -->
+</div><!-- end of search_stations_page -->

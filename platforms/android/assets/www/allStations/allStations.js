@@ -27,7 +27,7 @@
   populateAllStationsPage = function(json) {
     $('#allStationsList').empty();
     return $(json).each(function() {
-      return $('#allStationsList').append("<a href=\"../displayStation/displayStation.html\" onclick=\"getStationInfo('" + this.StationCode + "')\">" + this.StationDesc + "</a><hr> ");
+      return $('#allStationsList').append("<a href=\"#\" onclick=\"getStationInfo('" + this.StationCode + "')\">" + this.StationDesc + "</a><hr> ");
     });
   };
 

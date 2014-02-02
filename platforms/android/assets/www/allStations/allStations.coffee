@@ -17,7 +17,7 @@ window.getStations = (choice) ->
 populateAllStationsPage = (json) ->
   $('#allStationsList').empty()
   $(json).each ->
-    $('#allStationsList').append """<a href="../displayStation/displayStation.html" onclick="getStationInfo('#{@.StationCode}')">#{@.StationDesc}</a><hr> """
+    $('#allStationsList').append """<a href="#" onclick="getStationInfo('#{@.StationCode}')">#{@.StationDesc}</a><hr> """
 
 
 

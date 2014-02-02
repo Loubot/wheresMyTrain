@@ -10,6 +10,9 @@ body{
 	height:100%;
 }
 
+.ui-mobile, .ui-mobile .ui-page {
+    min-height: 100% !important;
+}
 .ui-page {
 	width:100%;
 }
@@ -35,4 +38,11 @@ body{
 
 #mapContainer{
 	height:35%;
+}
+
+#submitSearch{
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+
 }
