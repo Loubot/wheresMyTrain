@@ -20,6 +20,8 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <preference name="LoadUrlTimeoutValue" value="70000"/>
-
+    <preference name="LoadUrlTimeoutValue" value="70000" />
+    <feature name="Geolocation">
+        <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
+    </feature>
 </widget>
