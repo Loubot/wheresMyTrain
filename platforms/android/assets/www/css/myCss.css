@@ -31,9 +31,12 @@ body{
 
 #searchImage{
 	width: 40%;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;	
+	margin: 5% 0 0 10%;	
+}
+
+#markerImage{
+	width: 40%;
+	margin: 5% 0 0 5%;
 }
 
 #mapContainer{
@@ -45,4 +48,8 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 
+}
+
+#nearbyStationsMap{
+	height:80%;
 }
