@@ -40,7 +40,8 @@ populateNearbyStationsMap = (stations, position) ->
 		marker = new google.maps.Marker
 			position: latlng
 			icon: '../img/train.png'
-			message: @.stationName
+			message: """<p id="nearbyMessage" onclick="displayStation('#{@.code}')">#{@.stationName}</p> """
+			#onclick call goes to searchStations.coffee. No need to duplicate function here
 			
 		marker.setMap map
 		google.maps.event.addListener marker, 'click',->

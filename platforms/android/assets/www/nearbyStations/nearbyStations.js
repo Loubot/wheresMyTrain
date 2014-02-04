@@ -57,7 +57,7 @@
       marker = new google.maps.Marker({
         position: latlng,
         icon: '../img/train.png',
-        message: this.stationName
+        message: "<p id=\"nearbyMessage\" onclick=\"displayStation('" + this.code + "')\">" + this.stationName + "</p> "
       });
       marker.setMap(map);
       return google.maps.event.addListener(marker, 'click', function() {

@@ -53,3 +53,8 @@ body{
 #nearbyStationsMap{
 	height:75%;
 }
+
+#nearbyMessage{
+	font-family: monospace;
+	color: black;
+}
