@@ -9,7 +9,7 @@ gotCoords = (position) ->
 		url: 'http://10.0.2.2:3000/close_stations.json'
 		type: 'get'
 		dataType: 'json'
-		data: { coords: [position.coords.longitude,position.coords.latitude] }
+		data: { coords: [position.coords.latitude,position.coords.longitude] }
 		timeout: 10000
 		success: (json) ->
 			console.log 'nearbyStations ajax success' + JSON.stringify json
@@ -22,4 +22,27 @@ failedCoords = (error) ->
 	navigator.notification.confirm 'Faied to get location', null, 'Bad location', ['Continue']
 
 populateNearbyStationsMap = (stations, position) ->
-	createMap position.coords.longitude, position.coords.latitude, 'You are here', 'nearbyStationsMap'
+	latlng = new google.maps.LatLng position.coords.latitude, position.coords.longitude	
+	map = new google.maps.Map document.getElementById('nearbyStationsMap'),
+		center:latlng
+		zoom:10
+		mapTypeId:google.maps.MapTypeId.ROADMAP
+	marker = new google.maps.Marker
+		position: latlng
+		map: map	
+
+	infoWindow = new google.maps.InfoWindow
+		content: 'You are here!'
+	infoWindow.open map, marker
+
+	$(stations).each ->
+		latlng = new google.maps.LatLng @.lat, @.lon
+		marker = new google.maps.Marker
+			position: latlng
+			icon: '../img/train.png'
+			message: @.stationName
+			
+		marker.setMap map
+		google.maps.event.addListener marker, 'click',->
+			infoWindow.setContent @.message
+			infoWindow.open map, @

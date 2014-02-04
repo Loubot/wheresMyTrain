@@ -19,7 +19,7 @@
         Apache Cordova Team
     </author>
     <content src="index.html" />
-    <access origin="*" />
+    <access origin="*" subdomains="true"/>
     <preference name="LoadUrlTimeoutValue" value="70000" />
     <feature name="Geolocation">
         <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
