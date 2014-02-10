@@ -47,3 +47,4 @@ populateNearbyStationsMap = (stations, position) ->
 		google.maps.event.addListener marker, 'click',->
 			infoWindow.setContent @.message
 			infoWindow.open map, @
+
