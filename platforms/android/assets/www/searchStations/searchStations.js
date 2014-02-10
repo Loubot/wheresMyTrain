@@ -8,7 +8,7 @@
     return $.ajax({
       url: 'http://10.0.2.2:3000/search_stations.json',
       data: {
-        data: $('#search-basic').val()
+        data: $('#search-basic').val();
       },
       type: 'get',
       dataType: 'json',

@@ -6,7 +6,7 @@ $(document).on 'pagebeforeshow', '#nearby_stations_page', ->
 
 gotCoords = (position) ->	
 	$.ajax
-		url: 'http://10.0.2.2:3000/close_stations.json'
+		url: 'http://10.0.2.2:3000/nearby_stations.json'
 		type: 'get'
 		dataType: 'json'
 		data: { coords: [position.coords.latitude,position.coords.longitude] }
@@ -25,7 +25,7 @@ populateNearbyStationsMap = (stations, position) ->
 	latlng = new google.maps.LatLng position.coords.latitude, position.coords.longitude	
 	map = new google.maps.Map document.getElementById('nearbyStationsMap'),
 		center:latlng
-		zoom:10
+		zoom:12
 		mapTypeId:google.maps.MapTypeId.ROADMAP
 	marker = new google.maps.Marker
 		position: latlng
