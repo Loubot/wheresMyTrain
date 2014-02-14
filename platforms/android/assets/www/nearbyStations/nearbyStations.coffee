@@ -2,7 +2,7 @@ $(document).on 'pagebeforeshow', '#nearby_stations_page', ->
 	$('#nearby_stations_page').on 'scrollstart', (e) ->
 		e.preventDefault()
 
-	navigator.geolocation.getCurrentPosition(gotCoords, failedCoords, { timeout:10000 })
+	navigator.geolocation.getCurrentPosition(gotCoords, failedCoords, { timeout:50000 })
 
 gotCoords = (position) ->	
 	$.ajax
@@ -20,6 +20,7 @@ gotCoords = (position) ->
 failedCoords = (error) ->
 	console.log 'geolocation error ' + error
 	navigator.notification.confirm 'Faied to get location', null, 'Bad location', ['Continue']
+	history.back()
 
 populateNearbyStationsMap = (stations, position) ->
 	latlng = new google.maps.LatLng position.coords.latitude, position.coords.longitude	
@@ -32,7 +33,7 @@ populateNearbyStationsMap = (stations, position) ->
 		map: map	
 
 	infoWindow = new google.maps.InfoWindow
-		content: 'You are here!'
+		content: '<p id="opacityPlease">You are here!</p>'
 	infoWindow.open map, marker
 
 	$(stations).each ->

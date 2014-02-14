@@ -7,7 +7,7 @@
       return e.preventDefault();
     });
     return navigator.geolocation.getCurrentPosition(gotCoords, failedCoords, {
-      timeout: 10000
+      timeout: 50000
     });
   });
 
@@ -32,7 +32,8 @@
 
   failedCoords = function(error) {
     console.log('geolocation error ' + error);
-    return navigator.notification.confirm('Faied to get location', null, 'Bad location', ['Continue']);
+    navigator.notification.confirm('Faied to get location', null, 'Bad location', ['Continue']);
+    return history.back();
   };
 
   populateNearbyStationsMap = function(stations, position) {
@@ -48,7 +49,7 @@
       map: map
     });
     infoWindow = new google.maps.InfoWindow({
-      content: 'You are here!'
+      content: '<p id="opacityPlease">You are here!</p>'
     });
     infoWindow.open(map, marker);
     return $(stations).each(function() {
