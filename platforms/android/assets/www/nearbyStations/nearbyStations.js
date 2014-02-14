@@ -49,7 +49,7 @@
       map: map
     });
     infoWindow = new google.maps.InfoWindow({
-      content: '<p id="opacityPlease">You are here!</p>'
+      content: '<div id="window"><p>You are here!</p></div>'
     });
     infoWindow.open(map, marker);
     return $(stations).each(function() {
