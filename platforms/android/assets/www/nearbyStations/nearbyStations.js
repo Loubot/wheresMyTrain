@@ -7,8 +7,7 @@
       return e.preventDefault();
     });
     return navigator.geolocation.getCurrentPosition(gotCoords, failedCoords, {
-      timeout: 10000,
-      enableHighAccuracy: true
+      timeout: 10000
     });
   });
 

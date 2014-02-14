@@ -2,7 +2,7 @@ $(document).on 'pagebeforeshow', '#nearby_stations_page', ->
 	$('#nearby_stations_page').on 'scrollstart', (e) ->
 		e.preventDefault()
 
-	navigator.geolocation.getCurrentPosition(gotCoords, failedCoords, { timeout:10000, enableHighAccuracy: true })
+	navigator.geolocation.getCurrentPosition(gotCoords, failedCoords, { timeout:10000 })
 
 gotCoords = (position) ->	
 	$.ajax
