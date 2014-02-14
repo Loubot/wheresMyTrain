@@ -3,7 +3,7 @@ $(document).on 'pagebeforeshow', '#search_stations_page', ->
 
 $(document).on 'click', '#submitSearch', ->
   $.ajax
-    url: 'http://10.0.2.2:3000/search_stations.json'
+    url: 'http://aqueous-reaches-7754.herokuapp.com/search_stations.json'
     data: { data: $('#search-basic').val() }
     type: 'get'
     dataType: 'json'

@@ -14,7 +14,7 @@ $(document).on 'pagebeforeshow', '#all_trains_page', ->
     $.ajax
       type: 'get'
       data: { data: type }
-      url: 'http://10.0.2.2:3000/all_trains.json'
+      url: 'http://aqueous-reaches-7754.herokuapp.com/all_trains.json'
       dataType : 'json'
       success: (json) ->
         populatePage(json)
