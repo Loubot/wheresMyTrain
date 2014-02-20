@@ -7,7 +7,7 @@
       return e.preventDefault();
     });
     return navigator.geolocation.getCurrentPosition(gotCoords, failedCoords, {
-      timeout: 50000
+      timeout: 15000
     });
   });
 
@@ -49,7 +49,7 @@
       map: map
     });
     infoWindow = new google.maps.InfoWindow({
-      content: '<div id="window"><p>You are here!</p></div>'
+      content: '<p>You are here!</p>'
     });
     infoWindow.open(map, marker);
     return $(stations).each(function() {

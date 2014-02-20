@@ -2,7 +2,7 @@ $(document).on 'pagebeforeshow', '#nearby_stations_page', ->
 	$('#nearby_stations_page').on 'scrollstart', (e) ->
 		e.preventDefault()
 
-	navigator.geolocation.getCurrentPosition(gotCoords, failedCoords, { timeout:50000 })
+	navigator.geolocation.getCurrentPosition(gotCoords, failedCoords, { timeout:15000 })
 
 gotCoords = (position) ->	
 	$.ajax
@@ -33,7 +33,7 @@ populateNearbyStationsMap = (stations, position) ->
 		map: map	
 
 	infoWindow = new google.maps.InfoWindow
-		content: '<div id="window"><p>You are here!</p></div>'
+		content: '<p>You are here!</p>'
 	infoWindow.open map, marker
 
 	$(stations).each ->
