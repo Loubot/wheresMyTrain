@@ -25,7 +25,7 @@
         data: {
           data: type
         },
-        url: 'http://10.0.2.2:3000/all_trains.json',
+        url: 'http://aqueous-reaches-7754.herokuapp.com/all_trains.json',
         dataType: 'json',
         success: function(json) {
           populatePage(json);

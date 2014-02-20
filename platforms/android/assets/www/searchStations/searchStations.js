@@ -6,7 +6,7 @@
 
   $(document).on('click', '#submitSearch', function() {
     return $.ajax({
-      url: 'http://10.0.2.2:3000/search_stations.json',
+      url: 'http://aqueous-reaches-7754.herokuapp.com/search_stations.json',
       data: {
         data: $('#search-basic').val()
       },

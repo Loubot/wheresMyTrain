@@ -6,7 +6,7 @@
     var code;
     code = window.sessionStorage.getItem('stationCode');
     return $.ajax({
-      url: "http://10.0.2.2:3000/station_info.json",
+      url: "http://aqueous-reaches-7754.herokuapp.com/station_info.json",
       data: {
         data: code
       },

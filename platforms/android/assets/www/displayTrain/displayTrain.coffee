@@ -3,7 +3,7 @@ $(document).on 'pagebeforeshow', '#display_train_page', ->
 	console.log 'displayTrain info ' + trainCode
 
 	$.ajax
-		url: 'http://10.0.2.2:3000/train_info.json'
+		url: 'http://aqueous-reaches-7754.herokuapp.com/train_info.json'
 		data: { data: trainCode }
 		dataType: 'json'
 		timeout: 10000

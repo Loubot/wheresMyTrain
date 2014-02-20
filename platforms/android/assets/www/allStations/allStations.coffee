@@ -4,7 +4,7 @@ $(document).on 'pagebeforeshow', '#all_stations_page', ->
 
 window.getStations = (choice) ->
     $.ajax
-      url: "http://10.0.2.2:3000/get_all_stations.json"
+      url: "http://aqueous-reaches-7754.herokuapp.com/get_all_stations.json"
       data: { type: choice }
       type:'get'
       dataType:'json'

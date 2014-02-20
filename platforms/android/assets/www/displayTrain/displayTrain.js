@@ -7,7 +7,7 @@
     trainCode = window.sessionStorage.getItem('trainCode');
     console.log('displayTrain info ' + trainCode);
     return $.ajax({
-      url: 'http://10.0.2.2:3000/train_info.json',
+      url: 'http://aqueous-reaches-7754.herokuapp.com/train_info.json',
       data: {
         data: trainCode
       },
