@@ -13,7 +13,11 @@
 
   gotCoords = function(position) {
     return $.ajax({
+<<<<<<< HEAD
       url: 'http://aqueous-reaches-7754.herokuapp.com/nearby_stations.json',
+=======
+      url: 'http://aqueous-reaches-7754.herokuapp.com/close_stations.json',
+>>>>>>> 21ac5f831b3d700b5c90ff7d251c0bda5783538d
       type: 'get',
       dataType: 'json',
       data: {
